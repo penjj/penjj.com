@@ -1,0 +1,58 @@
+{
+  "name": "penjj-blog",
+  "description": "My personal website and blog.",
+  "version": "0.0.0",
+  "type": "module",
+  "packageManager": "pnpm@8.6.12",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "prepare": "simple-git-hooks",
+    "ts-check": "tsc --noEmit",
+    "test": "vitest",
+    "lint": "eslint . --ext .ts,.tsx,.astro --fix"
+  },
+  "dependencies": {
+    "astro": "^3.1.0",
+    "solid-js": "^1.7.11"
+  },
+  "devDependencies": {
+    "@astrojs/solid-js": "^3.0.1",
+    "@astrojs/mdx": "^1.1.0",
+    "vitest": "^0.34.4",
+    "unocss": "^0.55.7",
+    "unocss-preset-daisy": "^6.0.1",
+    "daisyui": "^3.7.4",
+    "@unocss/reset": "^0.55.7",
+    "@penjj/eslint-config": "^0.3.7",
+    "bumpp": "^9.2.0",
+    "simple-git-hooks": "^2.9.0",
+    "lint-staged": "^14.0.1",
+    "vue-commitlint": "^0.1.0",
+    "typescript": "^5.2.2"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged",
+    "commit-msg": "pnpm vue-commitlint"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,astro}": [
+      "eslint --fix"
+    ],
+    "*.{md,json}": [
+      "prettier --write"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "@penjj",
+    "rules": {
+      "max-len": "off"
+    }
+  },
+  "prettier": "@penjj/prettier-config",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
