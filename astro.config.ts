@@ -6,29 +6,38 @@ import unocss from 'unocss/astro'
 import { presetDaisy } from 'unocss-preset-daisy'
 import {
   presetAttributify,
-  presetMini,
   presetIcons,
   presetWebFonts,
   transformerVariantGroup,
+  presetUno,
 } from 'unocss'
 
 // https://astro.build/config
 export default defineConfig({
   server: {
-    open: true,
+    host: true,
   },
   integrations: [
     mdx(),
     solid(),
     unocss({
       injectReset: true,
+      shortcuts: {
+        'h-text': 'text-gray-4 dark:text-gray-6',
+        'h-text-hl': 'text-gray-7 dark:text-gray-4',
+      },
       transformers: [transformerVariantGroup()],
       presets: [
         presetDaisy({
           themes: ['light', 'dark'],
         }),
         presetAttributify(),
-        presetMini(),
+        presetUno({
+          dark: {
+            light: '[data-theme=light]',
+            dark: '[data-theme=dark]',
+          },
+        }),
         presetIcons({
           autoInstall: true,
         }),

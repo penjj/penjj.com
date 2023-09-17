@@ -1,8 +1,13 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
+    "baseUrl": ".",
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["astro/client"]
+    "types": ["astro/client"],
+    "paths": {
+      "$blogs/*": ["blogs/*"],
+      "@/*": ["src/*"]
+    }
   }
 }
