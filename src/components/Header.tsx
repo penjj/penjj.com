@@ -25,8 +25,8 @@ const Header: Component<{
       </a>
       <nav class="flex items-center gap-4 h-text sm:gap-12">
         <a
-          href="/blogs"
-          class={isActive('/blogs') ? 'h-text-hl' : ''}
+          href="/blog"
+          class={isActive('/blog') ? 'h-text-hl' : ''}
           title="Blog"
         >
           <span>Blog</span>
