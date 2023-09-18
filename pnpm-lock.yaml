@@ -4,56 +4,63 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
+dependencies:
+  astro:
+    specifier: ^3.1.0
+    version: 3.1.0
+  classnames:
+    specifier: ^2.3.2
+    version: 2.3.2
+  solid-js:
+    specifier: ^1.7.11
+    version: 1.7.11
 
-  .:
-    dependencies:
-      astro:
-        specifier: ^3.1.0
-        version: 3.1.0
-      solid-js:
-        specifier: ^1.7.11
-        version: 1.7.11
-    devDependencies:
-      '@astrojs/mdx':
-        specifier: ^1.1.0
-        version: 1.1.0(astro@3.1.0)
-      '@astrojs/solid-js':
-        specifier: ^3.0.1
-        version: 3.0.1(solid-js@1.7.11)(vite@4.4.9)
-      '@penjj/eslint-config':
-        specifier: ^0.3.7
-        version: 0.3.7(@penjj/prettier-config@0.3.7)(@penjj/stylelint-config@0.3.7)(@penjj/tsconfig@0.3.7)(eslint-plugin-all-in-one@0.3.7)(eslint@8.49.0)(prettier@3.0.3)
-      '@unocss/reset':
-        specifier: ^0.55.7
-        version: 0.55.7
-      bumpp:
-        specifier: ^9.2.0
-        version: 9.2.0
-      daisyui:
-        specifier: ^3.7.4
-        version: 3.7.4
-      lint-staged:
-        specifier: ^14.0.1
-        version: 14.0.1
-      simple-git-hooks:
-        specifier: ^2.9.0
-        version: 2.9.0
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2
-      unocss:
-        specifier: ^0.55.7
-        version: 0.55.7(postcss@8.4.29)(vite@4.4.9)
-      unocss-preset-daisy:
-        specifier: ^6.0.1
-        version: 6.0.1(daisyui@3.7.4)(unocss@0.55.7)
-      vitest:
-        specifier: ^0.34.4
-        version: 0.34.4
-      vue-commitlint:
-        specifier: ^0.1.0
-        version: 0.1.0
+devDependencies:
+  '@astrojs/mdx':
+    specifier: ^1.1.0
+    version: 1.1.0(astro@3.1.0)
+  '@astrojs/solid-js':
+    specifier: ^3.0.1
+    version: 3.0.1(solid-js@1.7.11)(vite@4.4.9)
+  '@iconify-json/bi':
+    specifier: ^1.1.19
+    version: registry.npmmirror.com/@iconify-json/bi@1.1.19
+  '@penjj/eslint-config':
+    specifier: ^0.3.7
+    version: 0.3.7(@penjj/prettier-config@0.3.7)(@penjj/stylelint-config@0.3.7)(@penjj/tsconfig@0.3.7)(eslint-plugin-all-in-one@0.3.7)(eslint@8.49.0)(prettier@3.0.3)
+  '@unocss/preset-attributify':
+    specifier: ^0.55.7
+    version: 0.55.7
+  '@unocss/reset':
+    specifier: ^0.55.7
+    version: 0.55.7
+  bumpp:
+    specifier: ^9.2.0
+    version: 9.2.0
+  daisyui:
+    specifier: ^3.7.4
+    version: 3.7.4
+  lint-staged:
+    specifier: ^14.0.1
+    version: 14.0.1
+  simple-git-hooks:
+    specifier: ^2.9.0
+    version: 2.9.0
+  typescript:
+    specifier: ^5.2.2
+    version: 5.2.2
+  unocss:
+    specifier: ^0.55.7
+    version: 0.55.7(postcss@8.4.29)(vite@4.4.9)
+  unocss-preset-daisy:
+    specifier: ^6.0.1
+    version: 6.0.1(daisyui@3.7.4)(unocss@0.55.7)
+  vitest:
+    specifier: ^0.34.4
+    version: 0.34.4
+  vue-commitlint:
+    specifier: ^0.1.0
+    version: 0.1.0
 
 packages:
 
@@ -930,16 +937,12 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@iconify/types@2.0.0:
-    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
-    dev: true
-
   /@iconify/utils@2.1.9:
     resolution: {integrity: sha512-mo+A4n3MwLlWlg1SoSO+Dt6pOPWKElk9sSJ6ZpuzbB9OcjxN8RUWxU3ulPwB1nglErWKRam2x4BAohbYF7FiFA==}
     dependencies:
       '@antfu/install-pkg': 0.1.1
       '@antfu/utils': 0.7.6
-      '@iconify/types': 2.0.0
+      '@iconify/types': registry.npmmirror.com/@iconify/types@2.0.0
       debug: 4.3.4
       kolorist: 1.8.0
       local-pkg: 0.4.3
@@ -2270,6 +2273,10 @@ packages:
     resolution: {integrity: sha512-eXTggHWSooYhq49F2opQhuHWgzucfF2YgODK4e1566GQs5BIfP30B0oenwBJHfWxAs2fyPB1s7Mg949zLf61Yw==}
     engines: {node: '>=8'}
 
+  /classnames@2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: false
+
   /cli-boxes@3.0.0:
     resolution: {integrity: sha512-/lzGpEWL/8PfI0BmBOPRwp0c/wFNX1RdUML3jK/RcSBA9T8mZDdQpqYBKtCFTOfQbwPqWEOpjqW+Fnayc0969g==}
     engines: {node: '>=10'}
@@ -2304,6 +2311,7 @@ packages:
   /color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
     engines: {node: '>=7.0.0'}
+    requiresBuild: true
     dependencies:
       color-name: 1.1.4
 
@@ -7480,3 +7488,17 @@ packages:
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
+
+  registry.npmmirror.com/@iconify-json/bi@1.1.19:
+    resolution: {integrity: sha512-awbOuIu3hAKckicuCBKvuODk9hJ9Qi5gP6cz6AATWKmFiFb/prvX9LNNgWNP/EgxoQQbSsuzXIEivDMMmsb65w==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/@iconify-json/bi/-/bi-1.1.19.tgz}
+    name: '@iconify-json/bi'
+    version: 1.1.19
+    dependencies:
+      '@iconify/types': registry.npmmirror.com/@iconify/types@2.0.0
+    dev: true
+
+  registry.npmmirror.com/@iconify/types@2.0.0:
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/@iconify/types/-/types-2.0.0.tgz}
+    name: '@iconify/types'
+    version: 2.0.0
+    dev: true

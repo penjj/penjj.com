@@ -1,6 +1,7 @@
 ---
-import Footer from '../components/Footer.tsx'
-import Header from '../components/Header.tsx';
+import Header from '@/components/Header.tsx'
+
+import './Layout.css'
 
 const { title } = Astro.props
 ---
@@ -9,16 +10,38 @@ const { title } = Astro.props
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <title>{title}</title>
+    <script is:inline>
+      let currentMode = sessionStorage.getItem('data-theme')
+      if (currentMode === 'auto') {
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)')
+        currentMode = systemDark.matches ? 'dark' : 'light'
+      }
+      document.documentElement.setAttribute('data-theme', currentMode)
+    </script>
   </head>
-  <body>
-    <Header/>
-    <main>
+  <body class="font-sans h-100%" flex="~ col">
+    <Header client:visible active={Astro.url.pathname} />
+    <main
+      class="px-4 pt-6 flex-1 transition-all
+      sm:(pt-20 min-w-640px m-[0_auto]) lg:(min-w-900px)"
+    >
       <slot />
     </main>
 
-    <Footer />
+    <footer class="px-4 text-center mt-10 mb-3 text-sm h-text">
+      <a
+        href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans"
+        target="_blank"
+        title="To CC BY_NC_SA 4.0 License"
+      >
+        CC BY-NC-SA 4.0
+      </a> 2023-PRESENT © penjj
+    </footer>
   </body>
 </html>

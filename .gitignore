@@ -1,6 +1,5 @@
 node_modules
 pnpm-debug.log*
-env.d.ts
 .DS_Store
 dist
 .astro
