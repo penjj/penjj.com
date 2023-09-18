@@ -21,7 +21,7 @@ const Header: Component<{
       "
     >
       <a href="/" title="Penjj's home">
-        <img class="w-10 h-10 rounded-full" src="/favicon.ico" />
+        <img class="w-10 h-10 rounded-full" src="/logo.png" />
       </a>
       <nav class="flex items-center gap-4 h-text sm:gap-12">
         <a
