@@ -7,7 +7,7 @@ const Header: Component<{
   const { toggleTheme, initTheme } = useTheme()
 
   const isActive = (path: string) => {
-    return props.active === path
+    return props.active.startsWith(path)
   }
 
   onMount(initTheme)
