@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig, passthroughImageService } from 'astro/config'
 import solid from '@astrojs/solid-js'
 import mdx from '@astrojs/mdx'
 import unocss from 'unocss/astro'
@@ -16,6 +16,9 @@ import {
 export default defineConfig({
   server: {
     host: true,
+  },
+  image: {
+    service: passthroughImageService(),
   },
   integrations: [
     mdx(),
