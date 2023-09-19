@@ -17,7 +17,7 @@ const Header: Component<{
       class="
         flex justify-between items-center h-16 shadow-md transition-all
         pl-3  select-none
-        sm:(shadow-none h-20 px-4)
+        sm:(shadow-none h-80px px-4)
       "
     >
       <a href="/" title="Penjj's home">
@@ -25,8 +25,8 @@ const Header: Component<{
       </a>
       <nav class="flex items-center gap-4 h-text sm:gap-12">
         <a
-          href="/blogs"
-          class={isActive('/blogs') ? 'h-text-hl' : ''}
+          href="/blog"
+          class={isActive('/blog') ? 'h-text-hl' : ''}
           title="Blog"
         >
           <span>Blog</span>
