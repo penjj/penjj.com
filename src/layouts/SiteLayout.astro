@@ -1,7 +1,7 @@
 ---
 import Header from '@/components/Header.tsx'
 
-import './Layout.css'
+import '@/styles/global.css'
 
 const { title } = Astro.props
 ---
@@ -29,7 +29,7 @@ const { title } = Astro.props
     <Header client:visible active={Astro.url.pathname} />
     <main
       class="px-4 pt-6 flex-1 transition-all
-      sm:(pt-20 min-w-640px m-[0_auto]) lg:(min-w-900px)"
+      sm:(pt-20 min-w-640px m-[0_auto]) lg:(w-900px)"
     >
       <slot />
     </main>

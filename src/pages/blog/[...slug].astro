@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content'
+// 1. 为每个集合条目生成一个新路径
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog')
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+// 2. 当渲染的时候，你可以直接从属性中得到条目
+const { entry } = Astro.props
+const { Content } = await entry.render()
+---
+
+<Content />
