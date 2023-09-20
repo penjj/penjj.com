@@ -3,9 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "preserve",
+    "allowJs": true,
     "jsxImportSource": "solid-js",
     "paths": {
-      "$blogs/*": ["blogs/*"],
       "@/*": ["src/*"]
     }
   }

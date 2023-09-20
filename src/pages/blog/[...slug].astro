@@ -1,6 +1,9 @@
 ---
 import { getCollection } from 'astro:content'
-// 1. 为每个集合条目生成一个新路径
+import SiteLayout from '@/layouts/SiteLayout.astro'
+
+import '@/styles/blog.css'
+
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog')
   return blogEntries.map(entry => ({
@@ -8,9 +11,13 @@ export async function getStaticPaths() {
     props: { entry },
   }))
 }
-// 2. 当渲染的时候，你可以直接从属性中得到条目
+
 const { entry } = Astro.props
 const { Content } = await entry.render()
 ---
 
-<Content />
+<SiteLayout title={entry.data.title}>
+  <article transition:animate="initial" class="blog">
+    <Content />
+  </article>
+</SiteLayout>

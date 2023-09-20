@@ -16,8 +16,8 @@ const Header: Component<{
     <header
       class="
         flex justify-between items-center h-16 shadow-md transition-all
-        pl-3  select-none
-        sm:(shadow-none h-80px px-4)
+        pl-3  select-none shrink-0
+        sm:(shadow-none h-20 px-4)
       "
     >
       <a href="/" title="Penjj's home">

@@ -1,3 +1,4 @@
+/* Header theme switch animation */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
@@ -16,6 +17,7 @@
   z-index: 1;
 }
 
+/* Scale scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -27,4 +29,13 @@ html {
   overflow-x: hidden;
   overflow-y: scroll;
   height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

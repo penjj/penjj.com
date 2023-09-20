@@ -2,6 +2,8 @@ import { defineConfig, passthroughImageService } from 'astro/config'
 import solid from '@astrojs/solid-js'
 import mdx from '@astrojs/mdx'
 import unocss from 'unocss/astro'
+import nested from 'postcss-nested'
+import cssnano from 'cssnano'
 
 import { presetDaisy } from 'unocss-preset-daisy'
 import {
@@ -9,11 +11,25 @@ import {
   presetIcons,
   presetWebFonts,
   transformerVariantGroup,
-  presetUno,
+  presetMini,
 } from 'unocss'
 
 // https://astro.build/config
 export default defineConfig({
+  vite: {
+    css: {
+      postcss: {
+        plugins: [nested, cssnano],
+      },
+    },
+  },
+  markdown: {
+    shikiConfig: {
+      wrap: true,
+      theme: 'vitesse-light',
+    },
+    syntaxHighlight: 'shiki',
+  },
   server: {
     host: true,
   },
@@ -21,10 +37,12 @@ export default defineConfig({
     service: passthroughImageService(),
   },
   integrations: [
-    mdx(),
+    mdx({
+      extendMarkdownConfig: true,
+    }),
     solid(),
     unocss({
-      injectReset: true,
+      // injectReset: true,
       shortcuts: {
         'h-text': 'text-gray-4 dark:text-gray-6',
         'h-text-hl': 'text-gray-7 dark:text-gray-4',
@@ -36,7 +54,7 @@ export default defineConfig({
           themes: ['light', 'dark'],
         }),
         presetAttributify(),
-        presetUno({
+        presetMini({
           dark: {
             light: '[data-theme=light]',
             dark: '[data-theme=dark]',

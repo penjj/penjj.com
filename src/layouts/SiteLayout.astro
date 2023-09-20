@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
 import Header from '@/components/Header.tsx'
 
 import '@/styles/global.css'
@@ -15,6 +16,7 @@ const { title } = Astro.props
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <ViewTransitions />
     <title>{title}</title>
     <script is:inline>
       let currentMode = sessionStorage.getItem('data-theme')
@@ -28,13 +30,13 @@ const { title } = Astro.props
   <body class="font-sans h-100%" flex="~ col">
     <Header client:visible active={Astro.url.pathname} />
     <main
-      class="px-4 pt-6 flex-1 transition-all
+      class="px-4 pt-6 transition-all flex-1
       sm:(pt-20 min-w-640px m-[0_auto]) lg:(w-900px)"
     >
       <slot />
     </main>
 
-    <footer class="px-4 text-center mt-10 mb-3 text-sm h-text">
+    <footer class="px-4 text-center pt-10 pb-3 text-sm h-text">
       <a
         href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans"
         target="_blank"
