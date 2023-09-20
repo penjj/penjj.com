@@ -6,14 +6,15 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - develop
 
   pull_request:
     branches:
-      - main
+      - develop
 
 jobs:
-  publish:
+  analyze:
+    name: CodeQL Analysis
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,6 +22,12 @@ jobs:
         with:
           node-version: 18
       - run: corepack enable
-      - run: pnpm i
-      - run: pnpm ts-check
-      - run: pnpm test
+
+      - name: Setup
+        run: pnpm i
+
+      - name: Ts check
+        run: pnpm ts-check
+
+      - name: Unit test
+        run: pnpm test
