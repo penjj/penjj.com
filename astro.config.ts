@@ -26,7 +26,7 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       wrap: true,
-      theme: 'vitesse-light',
+      theme: 'vitesse-dark',
     },
     syntaxHighlight: 'shiki',
   },

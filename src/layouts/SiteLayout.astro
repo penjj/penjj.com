@@ -30,7 +30,7 @@ const { title } = Astro.props
   <body class="font-sans h-100%" flex="~ col">
     <Header client:visible active={Astro.url.pathname} />
     <main
-      class="px-4 pt-6 transition-all flex-1
+      class="px-4 pt-6 transition-all flex-1 h-100%
       sm:(pt-20 min-w-640px m-[0_auto]) lg:(w-900px)"
     >
       <slot />
