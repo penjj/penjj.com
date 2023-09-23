@@ -23,6 +23,7 @@ export default defineConfig({
       },
     },
   },
+  trailingSlash: 'never',
   markdown: {
     shikiConfig: {
       wrap: true,

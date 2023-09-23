@@ -1,15 +1,15 @@
 ---
 import { getCollection } from 'astro:content'
 import SiteLayout from '@/layouts/SiteLayout.astro'
+import { join } from 'node:path'
 
 const blogs = await getCollection('blog')
-console.log(blogs)
 ---
 
 <SiteLayout title="penjj · Blog">
   {
     blogs.map(item => (
-      <a href={item.collection + '/' + item.slug}>{item.data.title}</a>
+      <a href={join('/', item.collection, '/', item.slug)}>{item.data.title}</a>
     ))
   }
 </SiteLayout>
