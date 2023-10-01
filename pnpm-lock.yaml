@@ -47,8 +47,8 @@ devDependencies:
     specifier: ^3.7.5
     version: 3.7.5
   happy-dom:
-    specifier: ^12.1.2
-    version: 12.1.2
+    specifier: ^12.4.0
+    version: 12.4.0
   lint-staged:
     specifier: ^14.0.1
     version: 14.0.1
@@ -69,7 +69,7 @@ devDependencies:
     version: 6.0.1(daisyui@3.7.5)(unocss@0.55.7)
   vitest:
     specifier: ^0.34.4
-    version: 0.34.4(happy-dom@12.1.2)
+    version: 0.34.4(happy-dom@12.4.0)
   vue-commitlint:
     specifier: ^0.1.0
     version: 0.1.0
@@ -3979,8 +3979,8 @@ packages:
       duplexer: 0.1.2
     dev: true
 
-  /happy-dom@12.1.2:
-    resolution: {integrity: sha512-Ee0MdMXAMzfmZ4gLe33iKt8Rza5Fkyr+DxtHzCiBihTkI8JoX2XOfPdSsKDr0JAoMNYdMrFqIDYBoHq5DJqDXg==}
+  /happy-dom@12.4.0:
+    resolution: {integrity: sha512-I3MUV+70GG4UfPuPLATndGwSZcB1q0EdJtwFTiC5nCNLGQY5tPdloyIJdq94lgVjH537gLFmo8zJgDvqvP/FDw==}
     dependencies:
       css.escape: 1.5.1
       entities: 4.5.0
@@ -7909,7 +7909,7 @@ packages:
     dependencies:
       vite: 4.4.9(@types/node@20.6.2)
 
-  /vitest@0.34.4(happy-dom@12.1.2):
+  /vitest@0.34.4(happy-dom@12.4.0):
     resolution: {integrity: sha512-SE/laOsB6995QlbSE6BtkpXDeVNLJc1u2LHRG/OpnN4RsRzM3GQm4nm3PQCK5OBtrsUqnhzLdnT7se3aeNGdlw==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -7953,7 +7953,7 @@ packages:
       cac: 6.7.14
       chai: 4.3.8
       debug: 4.3.4
-      happy-dom: 12.1.2
+      happy-dom: 12.4.0
       local-pkg: 0.4.3
       magic-string: 0.30.3
       pathe: 1.1.1
