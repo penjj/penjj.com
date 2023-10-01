@@ -33,7 +33,7 @@
     "typescript": "^5.2.2",
     "unocss": "^0.55.7",
     "unocss-preset-daisy": "^6.0.1",
-    "vitest": "^0.34.4",
+    "vitest": "^0.34.6",
     "vue-commitlint": "^0.1.0",
     "cssnano": "^6.0.1",
     "postcss-nested": "^6.0.1"
