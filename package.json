@@ -31,7 +31,7 @@
     "lint-staged": "^14.0.1",
     "simple-git-hooks": "^2.9.0",
     "typescript": "^5.2.2",
-    "unocss": "^0.55.7",
+    "unocss": "^0.57.1",
     "unocss-preset-daisy": "^6.0.1",
     "vitest": "^0.34.4",
     "vue-commitlint": "^0.1.0",
