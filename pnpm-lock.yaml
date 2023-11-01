@@ -35,8 +35,8 @@ devDependencies:
     specifier: ^0.55.7
     version: 0.55.7
   '@unocss/reset':
-    specifier: ^0.56.0
-    version: 0.56.0
+    specifier: ^0.57.1
+    version: 0.57.1
   bumpp:
     specifier: ^9.2.0
     version: 9.2.0
@@ -1634,8 +1634,8 @@ packages:
     resolution: {integrity: sha512-yvmLhxqUNgf6wue7IvhV/FdrQW9H9LF1Bmmhwwaiz2aV0E74aN4pbuYPZwNq3YafsQvNQ0UdtuXjddY4QMRCPw==}
     dev: true
 
-  /@unocss/reset@0.56.0:
-    resolution: {integrity: sha512-zTvUeN4Dkn+DY8YFHjKd+hfIpqcsNOKOeD0M64fWVjD0LmuuyuFASySYEGjlfvEEUjDiyNg96SnTXyOETYDclg==}
+  /@unocss/reset@0.57.1:
+    resolution: {integrity: sha512-f/ofoudjFN/HMtv1XV5phP58pOmNruBhr0GbVdBNylyieMQkFHowA7iSemChnC/fTbCcY6oSOAcFl4n9AefjdA==}
     dev: true
 
   /@unocss/scope@0.55.7:
