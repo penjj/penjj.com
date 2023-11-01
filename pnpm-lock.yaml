@@ -32,8 +32,8 @@ devDependencies:
     specifier: ^0.3.7
     version: 0.3.7(@penjj/prettier-config@0.3.7)(@penjj/stylelint-config@0.3.7)(@penjj/tsconfig@0.3.7)(eslint-plugin-all-in-one@0.3.7)(eslint@8.49.0)(prettier@3.0.3)
   '@unocss/preset-attributify':
-    specifier: ^0.55.7
-    version: 0.55.7
+    specifier: ^0.57.1
+    version: 0.57.1
   '@unocss/reset':
     specifier: ^0.56.0
     version: 0.56.0
@@ -1545,6 +1545,10 @@ packages:
     resolution: {integrity: sha512-c+bWe844Xjlwc1EPwHj0+n3LpntJG7ELPbEOOxNIG+CQdcEX0l1G0rkM8+nKstJ9WJmgpf1HdJQLVMF62HXvhw==}
     dev: true
 
+  /@unocss/core@0.57.1:
+    resolution: {integrity: sha512-cqQW/4gCuk+bFMPg9lBanuRNQ9Lx1l4PpMN/6uKxI5WROpq7ce/Xb4uGvAxKLh3ITtFSpXs2cLfsy7QD6cVD/Q==}
+    dev: true
+
   /@unocss/extractor-arbitrary-variants@0.55.7:
     resolution: {integrity: sha512-imK2g/frlo5Ag0uVB+C/Psyo5+9AnqhoRAgYa6gyrQ/TJnrnwf+M3jFngU9evIMHw92vig1DGfPa2ZId901DwQ==}
     dependencies:
@@ -1576,6 +1580,12 @@ packages:
     resolution: {integrity: sha512-L1sNw3DyM4mymIm4DBTTTOllk8LmhYlWMgDlaAW2MYWygjqDCsp99wRKT2175Ya5xHYBA6XetMoBryZD23qJYQ==}
     dependencies:
       '@unocss/core': 0.55.7
+    dev: true
+
+  /@unocss/preset-attributify@0.57.1:
+    resolution: {integrity: sha512-pvGQHaqBlB0jQysWhNbcKLOGrkj8b53k0sAa9LYxQjD1fa8t/dwbuMpZv4twX+gysF0vBhxRoWBPLH1/S6zRZg==}
+    dependencies:
+      '@unocss/core': 0.57.1
     dev: true
 
   /@unocss/preset-icons@0.55.7:
