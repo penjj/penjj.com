@@ -9,9 +9,9 @@ import { presetDaisy } from 'unocss-preset-daisy'
 import {
   presetAttributify,
   presetIcons,
+  presetMini,
   presetWebFonts,
   transformerVariantGroup,
-  presetMini,
 } from 'unocss'
 
 // https://astro.build/config

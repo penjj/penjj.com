@@ -1,9 +1,9 @@
-import { onMount, type Component } from 'solid-js'
+import { type Component, onMount } from 'solid-js'
 import { useTheme } from '@/hooks/useTheme'
 
 const Header: Component<{
   active: string
-}> = props => {
+}> = (props) => {
   const { toggleTheme, initTheme } = useTheme()
 
   const isActive = (path: string) => {

@@ -8,7 +8,7 @@ const blogs = await getCollection('blog')
 
 <SiteLayout title="penjj · Blog">
   {
-    blogs.map(item => (
+    blogs.map((item) => (
       <a href={join('/', item.collection, '/', item.slug)}>{item.data.title}</a>
     ))
   }

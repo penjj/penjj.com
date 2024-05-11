@@ -1,8 +1,11 @@
 {
   "name": "penjj-blog",
-  "description": "My personal website and blog.",
   "type": "module",
   "packageManager": "pnpm@8.6.12",
+  "description": "My personal website and blog.",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -10,33 +13,35 @@
     "prepare": "simple-git-hooks",
     "ts-check": "tsc --noEmit && astro check --noEmit",
     "test": "vitest",
-    "lint": "eslint . --ext .ts,.tsx,.astro --fix"
+    "lint": "eslint . --fix"
   },
   "dependencies": {
-    "astro": "^3.1.0",
-    "classnames": "^2.3.2",
-    "solid-js": "^1.7.12"
+    "astro": "^4.8.2",
+    "classnames": "^2.5.1",
+    "solid-js": "^1.8.17"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.2.0",
-    "@astrojs/mdx": "^1.1.0",
-    "@astrojs/solid-js": "^3.0.1",
-    "@iconify-json/bi": "^1.1.20",
-    "@penjj/eslint-config": "^0.3.7",
-    "@unocss/preset-attributify": "^0.55.7",
-    "@unocss/reset": "^0.56.0",
-    "happy-dom": "^12.1.2",
-    "bumpp": "^9.2.0",
+    "@antfu/eslint-config": "^2.17.0",
+    "@astrojs/check": "^0.6.0",
+    "@astrojs/mdx": "^3.0.0",
+    "@astrojs/solid-js": "^4.2.0",
+    "@iconify-json/bi": "^1.1.23",
+    "@unocss/preset-attributify": "^0.60.0",
+    "@unocss/reset": "^0.60.0",
+    "bumpp": "^9.4.1",
+    "cssnano": "^7.0.1",
     "daisyui": "^3.7.5",
-    "lint-staged": "^14.0.1",
-    "simple-git-hooks": "^2.9.0",
-    "typescript": "^5.2.2",
-    "unocss": "^0.55.7",
-    "unocss-preset-daisy": "^6.0.1",
-    "vitest": "^0.34.4",
-    "vue-commitlint": "^0.1.0",
-    "cssnano": "^6.0.1",
-    "postcss-nested": "^6.0.1"
+    "eslint-plugin-format": "^0.1.1",
+    "happy-dom": "^14.10.1",
+    "lint-staged": "^15.2.2",
+    "postcss-nested": "^6.0.1",
+    "prettier-plugin-astro": "^0.13.0",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.4.5",
+    "unocss": "^0.60.0",
+    "unocss-preset-daisy": "^7.0.0",
+    "vitest": "^1.6.0",
+    "vue-commitlint": "^0.1.0"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
@@ -49,23 +54,5 @@
     "*.{md,json}": [
       "prettier --write"
     ]
-  },
-  "eslintConfig": {
-    "extends": "@penjj",
-    "rules": {
-      "max-len": "off",
-      "import/no-unresolved": [
-        "error",
-        {
-          "ignore": [
-            "^astro:"
-          ]
-        }
-      ]
-    }
-  },
-  "prettier": "@penjj/prettier-config",
-  "engines": {
-    "node": ">=18.0.0"
   }
 }

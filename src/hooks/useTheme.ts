@@ -1,4 +1,4 @@
-import { createSignal, createEffect } from 'solid-js'
+import { createEffect, createSignal } from 'solid-js'
 
 export function useTheme() {
   const THEME_STORAGE_KEY = 'data-theme'
@@ -31,16 +31,15 @@ export function useTheme() {
     // @ts-expect-error experimental API
     const isAppearanceTransition = document.startViewTransition
 
-    if (!isAppearanceTransition) {
+    if (!isAppearanceTransition)
       return toggle()
-    }
 
     const x = event.clientX
     const y = event.clientY
 
     const endRadius = Math.hypot(
       Math.max(x, innerWidth - x),
-      Math.max(y, innerHeight - y)
+      Math.max(y, innerHeight - y),
     )
 
     // @ts-expect-error: Transition API
@@ -61,7 +60,7 @@ export function useTheme() {
           pseudoElement: isDarkMode
             ? '::view-transition-old(root)'
             : '::view-transition-new(root)',
-        }
+        },
       )
     })
   }
