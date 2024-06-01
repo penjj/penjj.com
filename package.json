@@ -26,7 +26,7 @@
     "@astrojs/mdx": "^3.0.0",
     "@astrojs/solid-js": "^4.2.0",
     "@iconify-json/bi": "^1.1.23",
-    "@unocss/preset-attributify": "^0.60.0",
+    "@unocss/preset-attributify": "^0.60.3",
     "@unocss/reset": "^0.60.0",
     "bumpp": "^9.4.1",
     "cssnano": "^7.0.1",
