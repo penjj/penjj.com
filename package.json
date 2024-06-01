@@ -38,7 +38,7 @@
     "prettier-plugin-astro": "^0.13.0",
     "simple-git-hooks": "^2.11.1",
     "typescript": "^5.4.5",
-    "unocss": "^0.60.0",
+    "unocss": "^0.60.3",
     "unocss-preset-daisy": "^7.0.0",
     "vitest": "^1.6.0",
     "vue-commitlint": "^0.1.0"
