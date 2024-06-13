@@ -19,6 +19,16 @@ const { title } = Astro.props
     <ViewTransitions />
     <title>{title}</title>
     <script is:inline>
+      var _hmt = _hmt || []
+      ;(function () {
+        var hm = document.createElement('script')
+        hm.src = 'https://hm.baidu.com/hm.js?30bb3449c8d056ee2a08605aa52c2cca'
+        var s = document.getElementsByTagName('script')[0]
+        s.parentNode.insertBefore(hm, s)
+      })()
+    </script>
+
+    <script is:inline>
       let currentMode = sessionStorage.getItem('data-theme')
       if (currentMode === 'auto') {
         const systemDark = window.matchMedia('(prefers-color-scheme: dark)')
