@@ -1,7 +1,7 @@
 {
   "name": "penjj-blog",
   "type": "module",
-  "packageManager": "pnpm@8.6.12",
+  "packageManager": "pnpm@9.3.0",
   "description": "My personal website and blog.",
   "engines": {
     "node": ">=18.0.0"
@@ -16,29 +16,29 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
-    "astro": "^4.8.2",
+    "astro": "^4.10.2",
     "classnames": "^2.5.1",
     "solid-js": "^1.8.17"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.17.0",
-    "@astrojs/check": "^0.6.0",
-    "@astrojs/mdx": "^3.0.0",
-    "@astrojs/solid-js": "^4.2.0",
+    "@antfu/eslint-config": "^2.21.1",
+    "@astrojs/check": "^0.7.0",
+    "@astrojs/mdx": "^3.1.0",
+    "@astrojs/solid-js": "^4.3.0",
     "@iconify-json/bi": "^1.1.23",
-    "@unocss/preset-attributify": "^0.60.0",
-    "@unocss/reset": "^0.60.0",
+    "@unocss/preset-attributify": "^0.61.0",
+    "@unocss/reset": "^0.61.0",
     "bumpp": "^9.4.1",
-    "cssnano": "^7.0.1",
+    "cssnano": "^7.0.2",
     "daisyui": "^3.7.5",
     "eslint-plugin-format": "^0.1.1",
-    "happy-dom": "^14.10.1",
-    "lint-staged": "^15.2.2",
+    "happy-dom": "^14.12.0",
+    "lint-staged": "^15.2.7",
     "postcss-nested": "^6.0.1",
-    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-astro": "^0.14.0",
     "simple-git-hooks": "^2.11.1",
     "typescript": "^5.4.5",
-    "unocss": "^0.60.0",
+    "unocss": "^0.61.0",
     "unocss-preset-daisy": "^7.0.0",
     "vitest": "^1.6.0",
     "vue-commitlint": "^0.1.0"
