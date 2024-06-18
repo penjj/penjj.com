@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
-import Header from '@/components/Header.tsx'
+import Menubar from '@/components/Menubar.tsx'
+import Search from '@/components/Search.tsx'
 
 import '@/styles/global.css'
 
@@ -18,35 +19,59 @@ const { title } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <ViewTransitions />
     <title>{title}</title>
-    <script is:inline>
-      var _hmt = _hmt || []
-      ;(function () {
-        var hm = document.createElement('script')
-        hm.src = 'https://hm.baidu.com/hm.js?30bb3449c8d056ee2a08605aa52c2cca'
-        var s = document.getElementsByTagName('script')[0]
-        s.parentNode.insertBefore(hm, s)
-      })()
-    </script>
+    <script
+      src="https://hm.baidu.com/hm.js?30bb3449c8d056ee2a08605aa52c2cca"
+      async></script>
 
-    <script is:inline>
+    <script>
       let currentMode = sessionStorage.getItem('data-theme')
       if (currentMode === 'auto') {
         const systemDark = window.matchMedia('(prefers-color-scheme: dark)')
-        currentMode = systemDark.matches ? 'dark' : 'light'
+        currentMode = systemDark.matches ? 'dark' : 'sunset'
       }
       document.documentElement.setAttribute('data-theme', currentMode)
     </script>
   </head>
-  <body class="font-sans h-100%" flex="~ col">
-    <Header client:visible active={Astro.url.pathname} />
-    <main
-      class="px-4 pt-6 transition-all flex-1 h-100%
-      sm:(pt-20 min-w-640px m-[0_auto]) lg:(w-900px)"
-    >
-      <slot />
-    </main>
+  <body
+    class="font-sans h-full w-full"
+    flex="~ col items-center justify-center"
+  >
+    <div flex="1 ~ items-center">
+      <div
+        class="mockup-browser"
+        bg-base-300
+        border="~ black #c1c1c1"
+        shadow-2xl
+        flex="~ col"
+        w-1600px
+        h-80vh
+        m-2
+      >
+        <header
+          class="mockup-browser-toolbar"
+          b-b="1px solid #d9d9d9"
+          pr-0!
+          m0!
+          py2
+        >
+          <Search />
+        </header>
 
-    <footer class="px-4 text-center pt-10 pb-3 text-sm h-text">
+        <main flex="~ 1">
+          <nav w-12 b-r="1px solid #d9d9d9">
+            <Menubar client:visible active={Astro.url.pathname} />
+          </nav>
+          <aside class="flex justify-center px-4 py-16 w-56">
+            <slot name="sideBar" />
+          </aside>
+          <article bg-base-200 flex="1">
+            <slot />
+          </article>
+        </main>
+      </div>
+    </div>
+
+    <footer class="px-4 text-center pb-6 pt-4 text-sm h-text">
       <a
         href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans"
         target="_blank"

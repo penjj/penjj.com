@@ -16,6 +16,7 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
+    "algoliasearch": "^4.23.3",
     "astro": "^4.10.2",
     "classnames": "^2.5.1",
     "solid-js": "^1.8.17"
@@ -26,11 +27,13 @@
     "@astrojs/mdx": "^3.1.0",
     "@astrojs/solid-js": "^4.3.0",
     "@iconify-json/bi": "^1.1.23",
+    "@iconify-json/material-symbols": "^1.1.82",
+    "@types/node": "^20.14.2",
     "@unocss/preset-attributify": "^0.61.0",
     "@unocss/reset": "^0.61.0",
     "bumpp": "^9.4.1",
     "cssnano": "^7.0.2",
-    "daisyui": "^3.7.5",
+    "daisyui": "^4.12.2",
     "eslint-plugin-format": "^0.1.1",
     "happy-dom": "^14.12.0",
     "lint-staged": "^15.2.7",
@@ -39,7 +42,7 @@
     "simple-git-hooks": "^2.11.1",
     "typescript": "^5.4.5",
     "unocss": "^0.61.0",
-    "unocss-preset-daisy": "^7.0.0",
+    "unocss-preset-daisy": "npm:@logs404/unocss-preset-daisy@8.0.0",
     "vitest": "^1.6.0",
     "vue-commitlint": "^0.1.0"
   },

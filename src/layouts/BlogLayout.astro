@@ -1,0 +1,11 @@
+---
+import SiteLayout from './SiteLayout.astro'
+import BlogList from '@/components/BlogList.tsx'
+
+const { title } = Astro.props
+---
+
+<SiteLayout title={title}>
+  <BlogList client:visible slot="sideBar" />
+  <slot />
+</SiteLayout>
