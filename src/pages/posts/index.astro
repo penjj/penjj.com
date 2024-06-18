@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content'
+import BlogLayout from '@/layouts/BlogLayout.astro'
+import { join } from 'node:path'
+
+const blogs = await getCollection('blog')
+---
+
+<BlogLayout title="penjj · Posts">
+  {
+    blogs.map((i) => (
+      <div>
+        <a href={join('/', i.collection, '/', i.slug)}>{i.data.title}</a>
+      </div>
+    ))
+  }
+</BlogLayout>

@@ -19,7 +19,7 @@ export default defineConfig({
   vite: {
     css: {
       postcss: {
-        plugins: [nested, cssnano],
+        plugins: [nested as any, cssnano],
       },
     },
   },

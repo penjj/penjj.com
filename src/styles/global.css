@@ -10,10 +10,10 @@
 ::view-transition-new(root) {
   z-index: 9999;
 }
-[data-theme='dark']::view-transition-old(root) {
+[data-theme="dark"]::view-transition-old(root) {
   z-index: 9999;
 }
-[data-theme='dark']::view-transition-new(root) {
+[data-theme="dark"]::view-transition-new(root) {
   z-index: 1;
 }
 
@@ -29,6 +29,7 @@ html {
   overflow-x: hidden;
   overflow-y: scroll;
   height: 100%;
+  width: 100vw;
 }
 
 body {
