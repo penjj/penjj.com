@@ -16,7 +16,7 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
-    "algoliasearch": "^4.23.3",
+    "algoliasearch": "^4.24.0",
     "astro": "^4.11.3",
     "classnames": "^2.5.1",
     "solid-js": "^1.8.17"
