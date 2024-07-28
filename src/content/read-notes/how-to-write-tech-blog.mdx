@@ -1,0 +1,109 @@
+---
+# layout: '@/layouts/SiteLayout.astro'
+title: '如何编写技术博客'
+pubDate: 2024-06-13
+description: ""
+author: "penjj"
+charset: "utf-8"
+tags: ["javascript", "npm"]
+---
+
+import { Image } from 'astro:assets'
+import hole from '@/assets/black_hole.jpeg'
+
+
+# 请不要固定`package.json`中的依赖版本
+
+通常，为了保证开发环境、生产环境的一致性，我们需要对依赖的版本进行控制。下图描述了一些依赖的版本描述方法
+
+> 版本描述的语法可见下表
+
+[npm package.json dependencies version doc](https://docs.npmjs.com/cli/v7/configuring-npm/package-json/#dependencies)
+| 语法 | 描述 |
+|---|---|
+| version | 必须与version完全匹配 |
+| >version | 必须大于version |
+| >=version | 大于或等于version |
+| \<version | 必须小于version |
+| ~version | “大约相当于版本”参见 [semver](https://github.com/npm/node-semver#versions) |
+| ^version | “兼容版本”参见 [semver](https://github.com/npm/node-semver#versions) |
+| 1.2.x | 锁定大版本号及中版本号，小版本号按最新处理 |
+| latest | 最新版本 |
+
+
+
+## 固定`version`能固定版本吗？
+从上述语法看来，`version`语法是用来描述一个固定的版本，包管理器会严格按照声明的版本来进行安装。那使用这种语法不应该就能安装一个在任何环境都一样的版本了吗？
+
+但是从这块的标题来看，显然不是的。Why?
+
+### 依赖的依赖，不是我的依赖
+依赖的依赖，不是我的依赖！`version`语法，固定的是第一层包的版本，但是第一层依赖包的依赖呢？他也有自己的`package.json`啊，里面也会有他自己的依赖`^version`来描述版本。`js`
+依赖基于源码分发。为保证包体积轻量化，通常依赖的依赖包不会把它自己的依赖`bundle`进来，只是声明依赖，而是通过主项目来进行安装和`bundle`。
+
+> 如：`element-plus`会依赖于`vue`，如果其将`element-plus`将`vue`打包进源码，最终构建时不就会有两份`vue`源码打包进`bundle`中？。并且，前端依赖包错综复杂，如果都打包进`bundle`，最终构建的`bundle`会非常庞大。
+
+所以通常你的依赖也会有自己的依赖，而它的依赖也会有依赖，层层相套。
+
+<Image src={hole} alt="人类拍摄到的第一张黑洞照片"/>
+
+因此，你在package.json中固定的版本，也只能固定住第一层包版本。
+
+所以指定`version`并不是可靠的版本锁定方式。
+
+## 那`^version`和`~version`呢？
+
+在依赖包遵循语义化版本的前提下：
+
+`^version`只锁定大版本号，即允许次要更新（中版本号,非破坏性的）、补丁更新（最小版本号）
+> 如 `^1.0.0`, 包管理器会安装从`>=1.0.0` 至 `<2.0.0`中，选取一个最新的来安装
+
+`~version`锁定大版本号和中版本号，即只允许补丁更新（最小版本号）
+> 如 `~1.0.0`, 包管理器会安装从`>=1.0.0` 至 `<1.0.n`中，选取一个最新的来安装
+
+可见，`^version`和`~version`也不一定能保证各环境的依赖一致性。难道就没有什么办法了吗？
+
+
+## 可靠的 lockfile
+
+`npm` 从 5.0开始，提供了版本锁机制，即在安装完包后，在项目根目录下生成一个`package-lock.json`，该文件会记录当前项目依赖版本和来源（包括你依赖的依赖，出于种种原因，这个功能在`npm@6.0`才稳定下来）。
+
+当再次运行`npm install`时，会优先读取`package-lock.json`，来按照锁文件中的版本来进行安装。当检测到锁文件没有的包时（比如新增的依赖包），才会重新去找版本安装, 并更新锁文件。
+
+然而，有的项目出于不明目的，会在`.gitignore`中忽略该文件。这样，版本就不一定稳定了。每次都会用采用最新的版本（规则之类最新的版本）。
+
+目前来看 `lockfile`是最安全可靠的依赖包版本管理机制，但是由于前端生态过于繁华，`lockfile`也可能会有一些问题。
+
+
+## 最佳实践
+前端在最近几年的发展中，诞生了三个主流的包管理器，`yarn`、`npm`、`pnpm`。
+
+> npm 是node官方的，在早期通过嵌套结构来安装包，导致项目依赖体积巨大，安装效率巨慢（后期有改进，但是用户全被yarn抢走了）
+> 
+> yarn 通过将依赖扁平化，过滤掉了一些重复的依赖，加快了安装效率。
+>
+> pnpm 则是将依赖存储在全局，通过软链接和硬链接来将依赖链接到局部项目，装过一次的依赖就不会再安装了，得益于此，它的安装速度是这三个中最快的（但不是最快，bun少了个加载node进程的时间，重复安装是毫秒级的），删除node_modules再进行安装，是秒级的。
+
+它各自会生成自己的`lockfile`，（`package-lock.json`、`yarn.lock`、`pnpm-lock.yaml`）并且互不兼容。
+
+割裂带来的问题可能是开发者各有所好，反正就按自己喜欢的来。可能线上用的是`npm`，本地用的`yarn`，并且可能存在本地和线上构建所用包管理器版本不统一的问题（lockfile也有版本，如果不统一，可能导致最终安装的依赖版本不一致）。
+
+
+### node16 和 corepack
+node16中新增了一个官方的包管理器的管理器，`corepack`。
+
+没错，它就是用来专门管理包管理器的。
+
+假如你本地初次安装nodejs, 且版本大于16，那么你可以运行 `corepack enable`。
+
+运行此行命令后，即可激活`corepack`（nodejs默认是关闭的）。然后在项目中`package.json`
+中添加`"packageManager": "pnpm@6.6.12"`，然后在package.json同级目录下运行 `pnpm -v`命令，你应该能获得以下输出:
+
+```bash
+> pnpm -v
+> 8.6.12
+```
+
+可见，在开启了`corepack`的环境下，包管理器的版本可以通过项目`package.json`来控制。
+
+那么我们只需要通过`corepack` 和 `package.json`即可保证生产、开发依赖版本保持一致了。

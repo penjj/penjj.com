@@ -1,7 +1,7 @@
 import { type Component, onMount } from 'solid-js'
 import { useTheme } from '@/hooks/useTheme'
 
-const Header: Component<{
+export const Header: Component<{
   active: string
 }> = (props) => {
   const { toggleTheme, initTheme } = useTheme()
@@ -16,14 +16,14 @@ const Header: Component<{
     <header
       class="
         flex justify-between items-center h-16 shadow-md transition-all
-        pl-3  select-none shrink-0
-        sm:(shadow-none h-20 px-4)
+        pl-3  select-none shrink-0 page-header sticky top-0 left-0 z-1 page-main
+        sm:(shadow-none h-16 px-4)
       "
     >
       <a href="/" title="Penjj's home">
         <img class="w-10 h-10 rounded-full" src="/logo.png" />
       </a>
-      <nav class="flex items-center gap-4 h-text sm:gap-12">
+      <nav class="flex items-center gap-4 sm:gap-12">
         <a
           href="/blog"
           class={isActive('/blog') ? 'h-text-hl' : ''}
@@ -57,5 +57,3 @@ const Header: Component<{
     </header>
   )
 }
-
-export { Header as default }

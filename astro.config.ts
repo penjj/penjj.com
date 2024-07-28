@@ -4,8 +4,6 @@ import mdx from '@astrojs/mdx'
 import unocss from 'unocss/astro'
 import nested from 'postcss-nested'
 import cssnano from 'cssnano'
-
-import { presetDaisy } from 'unocss-preset-daisy'
 import {
   presetAttributify,
   presetIcons,
@@ -19,7 +17,7 @@ export default defineConfig({
   vite: {
     css: {
       postcss: {
-        plugins: [nested, cssnano],
+        plugins: [nested as any, cssnano],
       },
     },
   },
@@ -43,17 +41,15 @@ export default defineConfig({
     }),
     solid(),
     unocss({
-      // injectReset: true,
+      injectReset: true,
       shortcuts: {
-        'h-text': 'text-gray-4 dark:text-gray-6',
         'h-text-hl': 'text-gray-7 dark:text-gray-4',
+        'text-tertiary': 'text-#a3a3a3',
+        'page-header': 'b-b bg-#fff dark:border-neutral-900',
+        'page-main': 'bg-#fff dark:bg-black',
       },
       transformers: [transformerVariantGroup()],
       presets: [
-        presetDaisy({
-          styled: true,
-          themes: ['light', 'dark'],
-        }),
         presetAttributify(),
         presetMini({
           dark: {
