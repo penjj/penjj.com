@@ -43,8 +43,8 @@ importers:
         specifier: ^0.61.0
         version: 0.61.0
       '@unocss/reset':
-        specifier: ^0.61.9
-        version: 0.61.9
+        specifier: ^0.62.3
+        version: 0.62.3
       bumpp:
         specifier: ^9.4.1
         version: 9.4.1
@@ -1342,8 +1342,8 @@ packages:
   '@unocss/reset@0.61.0':
     resolution: {integrity: sha512-VqemtmzH8Rgu5yNomtv50gIcy4KZ2x1aP+7WZCds9x5ZdTSEjbfCOgUDI9rDrrGSipJkCmJ1yOhUPMC7ND6Hfw==}
 
-  '@unocss/reset@0.61.9':
-    resolution: {integrity: sha512-A1KtJiFgLM0N3FqJ9r5M3mVULcwsn+14tq5WkvSPF9ik3zQeJh8/NhxKdJImWClwBOzn795NQFXXFB70Ja+2RA==}
+  '@unocss/reset@0.62.3':
+    resolution: {integrity: sha512-XVKPkbm8y9SGzRaG3x+HygGZURm50MvKLVHXsbxi67RbIir9Ouyt9hQTV6Xs3RicRZFWOpJx3wMRb8iKUOe5Zw==}
 
   '@unocss/rule-utils@0.61.0':
     resolution: {integrity: sha512-MCdmfhE6Q9HSWjWqi2sx5/nnKyOEhfhoo+pVumHIqkHQICQ/LuKioFf7Y7e5ycqjFE/7dC2hKGZJ8WTMGIOMwA==}
@@ -5748,7 +5748,7 @@ snapshots:
 
   '@unocss/reset@0.61.0': {}
 
-  '@unocss/reset@0.61.9': {}
+  '@unocss/reset@0.62.3': {}
 
   '@unocss/rule-utils@0.61.0':
     dependencies:
