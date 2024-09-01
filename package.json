@@ -34,7 +34,7 @@
     "cssnano": "^7.0.2",
     "eslint-plugin-format": "^0.1.1",
     "happy-dom": "^14.12.0",
-    "lint-staged": "^15.2.7",
+    "lint-staged": "^15.2.9",
     "postcss-nested": "^6.0.1",
     "prettier-plugin-astro": "^0.14.0",
     "simple-git-hooks": "^2.11.1",
