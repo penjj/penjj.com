@@ -11,9 +11,6 @@ importers:
       astro:
         specifier: ^4.15.2
         version: 4.15.2(@types/node@22.5.3)(rollup@4.21.2)(typescript@5.5.4)
-      classnames:
-        specifier: ^2.5.1
-        version: 2.5.1
       solid-js:
         specifier: ^1.8.22
         version: 1.8.22
@@ -1602,9 +1599,6 @@ packages:
 
   citty@0.1.6:
     resolution: {integrity: sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ==}
-
-  classnames@2.5.1:
-    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
 
   clean-regexp@1.0.0:
     resolution: {integrity: sha512-GfisEZEJvzKrmGWkvfhgzcz/BllN1USeqD2V6tg14OAOgaCD2Z/PUEuxnAZ/nPvmaHRG7a8y77p1T/IRQ4D1Hw==}
@@ -6084,8 +6078,6 @@ snapshots:
   citty@0.1.6:
     dependencies:
       consola: 3.2.3
-
-  classnames@2.5.1: {}
 
   clean-regexp@1.0.0:
     dependencies:
