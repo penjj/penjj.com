@@ -43,13 +43,14 @@ export default defineConfig({
     unocss({
       injectReset: true,
       shortcuts: {
-        'h-text-hl': 'text-gray-7 dark:text-gray-4',
-        'text-tertiary': 'text-#a3a3a3',
-        'page-header': 'b-b bg-#fff dark:border-neutral-900',
-        'page-main': 'bg-#fff dark:bg-black',
+        'text-primary': 'dark:text-#fdfdfd light:text-#161616',
+        'text-tertiary': 'dark:text-#a3a3a3 light:text-#6f6f6f',
+        'page-header': 'dark:(b-b-1 border-neutral-900) light:(b-b-1 bg-#fff)',
+        'page-main': 'dark:bg-black light:bg-#fff',
       },
       transformers: [transformerVariantGroup()],
       presets: [
+        // presetForme(),
         presetAttributify(),
         presetMini({
           dark: {

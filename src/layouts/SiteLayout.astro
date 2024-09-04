@@ -1,13 +1,16 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
-import { Header } from '@/components/Header.tsx'
+import { ThemeSwitch } from '@/components/ThemeSwitch.tsx'
 
 import '@/styles/global.css'
 
 const { title } = Astro.props
+
+const getActiveClass = (path: string) => {
+  return Astro.url.pathname === path ? 'text-primary font-600' : ''
+}
 ---
 
-<html lang="zh">
+<html lang="zh-Hans">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,35 +19,59 @@ const { title } = Astro.props
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <ViewTransitions />
     <title>{title}</title>
-    <script
-      src="https://hm.baidu.com/hm.js?30bb3449c8d056ee2a08605aa52c2cca"
-      async></script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFJE1C494R"
-    ></script>
+    <script>
+      let currentMode = localStorage.getItem('data-theme') || 'auto'
+      const doc = document.documentElement
+      if (currentMode === 'auto') {
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)')
+        const listener = (arg: { matches: boolean }) => {
+          currentMode = arg.matches ? 'dark' : 'light'
+          doc.setAttribute('data-theme', currentMode)
+        }
+        listener(systemDark)
+        systemDark.addEventListener('change', listener)
+      }
+      doc.setAttribute('data-theme', currentMode)
+    </script>
+    <script src="https://hm.baidu.com/hm.js?30bb3449c8d056ee2a08605aa52c2cca" async></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFJE1C494R"></script>
     <script>
       const dataLayer = ((window as any).dataLayer ||= [])
       dataLayer.push('js', new Date())
       dataLayer.push('config', 'G-WFJE1C494R')
     </script>
-
-    <script>
-      let currentMode = sessionStorage.getItem('data-theme')
-      if (currentMode === 'auto') {
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)')
-        currentMode = systemDark.matches ? 'dark' : 'sunset'
-      }
-      document.documentElement.setAttribute('data-theme', currentMode)
-    </script>
   </head>
   <body class="font-sans h-100% dark:color-#f5f5f5" flex="~ col" page-main>
-    <Header client:visible active={Astro.url.pathname} />
-    <main
-      class="article-container px-4 pt-6 transition-all flex-1 h-100%
-      sm:(pt-20 m-[0_auto]) w-full"
+    <header
+      class="h-16 shadow-md px-3 select-none shrink-0
+       page-header sticky top-0 left-0 z-1 page-main sm:shadow-none"
     >
+      <nav text="tertiary 16px" class="flex items-center gap-4 sm:gap-8 h-16 max-w-3xl mx-auto">
+        <div flex-1>
+          <a href="/" title="Penjj's home">
+            <img class="w-10 h-10 rounded-full" src="/logo.png" />
+          </a>
+        </div>
+        <a href="/post" class={getActiveClass('/post')} title="posts">
+          <span>博客</span>
+        </a>
+        <a href="/projects" class={getActiveClass('/projects')} title="projects">
+          <span>项目</span>
+        </a>
+        <a href="/me" class={getActiveClass('/me')} title="about me">
+          <div>关于我</div>
+        </a>
+        <div class="flex items-center gap-5 text-xl">
+          <ThemeSwitch client:load />
+          <a href="//github.com/penjj" target="_blank" title="GitHub">
+            <div class="i-bi:github text-5"></div>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main class="article-container px-4 pt-6 transition-all flex-1 h-100%
+      sm:(pt-20 mx-auto) w-full">
       <div class="sm:min-w-640px lg:w-900px">
         <slot />
       </div>
@@ -54,7 +81,7 @@ const { title } = Astro.props
       p="x4 t4 b8"
       text="center sm tertiary"
       w="sm:200 90vw"
-      class="b-t dark:border-neutral-900 self-center"
+      class="light:b-t dark:(border-neutral-900 b-t) self-center"
     >
       <a
         href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans"
@@ -62,7 +89,7 @@ const { title } = Astro.props
         title="To CC BY_NC_SA 4.0 License"
       >
         CC BY-NC-SA 4.0
-      </a> 2023-PRESENT © penjj
+      </a> 2023-PRESENT © <a href="//github.com/penjj">penjj</a>
     </footer>
   </body>
 </html>

@@ -7,6 +7,11 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "types": [
+      "@penjj/unocss-attributify/astro.d.ts",
+      "@penjj/unocss-attributify/solid.d.ts"
+    ],
     "allowJs": true
-  }
+  },
+  "exclude": ["dist"]
 }
