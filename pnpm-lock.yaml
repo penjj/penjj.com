@@ -34,8 +34,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0
       '@iconify-json/material-symbols-light':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.2.1
+        version: 1.2.1
       '@penjj/unocss-attributify':
         specifier: ^0.0.4
         version: 0.0.4(@unocss/preset-attributify@0.62.3)
@@ -784,8 +784,8 @@ packages:
   '@iconify-json/bi@1.2.0':
     resolution: {integrity: sha512-kaBV87cQlyeMkBBiMqsf3b43Nsxdk/rYKvR29dnktht57WUyHCnBAuH+ca/bscX856CzRpVX+sYs7arjrJD0qA==}
 
-  '@iconify-json/material-symbols-light@1.2.0':
-    resolution: {integrity: sha512-shm/DL9TlPSGsdMjjjptDqslQJ+GDOjfkfUI1rbaH2PZzWW4Lpnk8j6v3Kxfp63RWG0DCpOQVB/MyBBcFrTNpQ==}
+  '@iconify-json/material-symbols-light@1.2.1':
+    resolution: {integrity: sha512-V+YTtETuJHABPshWNP8i0zDUhscgTu8tQWl79BS4BrJbKnQJsGAZ2Zys4NNnRKalxcTj4yGmqW9YXPO3wGs0hA==}
 
   '@iconify-json/material-symbols@1.2.0':
     resolution: {integrity: sha512-g/a+Z5SE5GyNu8EmRKidRX0D6odws6sz68PhXvCWBK1YLCcf3XDBWZoWUyOQ/jlyUsvGu1QkDXBxq5XYSFPWXQ==}
@@ -5038,7 +5038,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/material-symbols-light@1.2.0':
+  '@iconify-json/material-symbols-light@1.2.1':
     dependencies:
       '@iconify/types': 2.0.0
 
