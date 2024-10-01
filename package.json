@@ -25,7 +25,7 @@
     "@astrojs/solid-js": "^4.4.1",
     "@iconify-json/bi": "^1.2.0",
     "@iconify-json/material-symbols": "^1.2.0",
-    "@iconify-json/material-symbols-light": "^1.2.0",
+    "@iconify-json/material-symbols-light": "^1.2.1",
     "@penjj/unocss-attributify": "^0.0.4",
     "@types/node": "^22.5.3",
     "@unocss/reset": "^0.62.3",
